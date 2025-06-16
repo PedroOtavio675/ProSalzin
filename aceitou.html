@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Já que aceitou</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        background: darkred;
+        color: white;
+        overflow: hidden;
+      }
+      .botao {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: white;
+        color: darkred;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        margin: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+      }
+      textarea {
+        padding: 10px;
+        font-size: 16px;
+        width: 300px;
+        height: 100px;
+        margin-top: 20px;
+        border-radius: 10px;
+        border: none;
+      }
+      #aliança {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1); /* Tamanho original */
+        }
+        50% {
+          transform: scale(0.8); /* Aumenta 20% */
+        }
+        100% {
+          transform: scale(1); /* Volta ao tamanho original */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Te busco as 20:00?</h1>
+    <img id="aliança" style="width:300px" src="caixa de aliança.png" alt="" />
+    
+    <form action="">
+        <h2>Mande uma menssagem para seu Amor</h2>
+   <textarea name="" id="mensagem" placeholder="Escreva sua menssagem"></textarea>
+    <button  onclick="enviarMensagem(event)" class="botao" type="submit">Enviar</button>
+      <script>
+        function enviarMensagem(event) {
+               const mensagem = document.getElementById("mensagem").value
+    const telefone = '553497390931'
+          const url =  `https://wa.me/${telefone}?text=${mensagem}`
+        window.open(url, '_blank')
+         alert("Mensagem enviada com sucesso!");
+        }
+      </script>
+    </form >
+    <audio autoplay>
+      <source src="careless-whisper-official-video.mp3" type="audio/mp3" />
+    </audio>
+  </body>
+</html>

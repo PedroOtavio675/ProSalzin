@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão Fugitivo</title>
+    <link rel="stylesheet" href="botão.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background:darkred;
+        }
+        button {
+            position: absolute;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: lightcoral;
+            border: none;
+            border-radius: 10px;
+            color: white;
+        }
+        h1{
+            color: white;
+            transform: translate(0%, -80%);
+        }
+        #sim{
+            transform: translate(330%, -50%);
+        }
+        #fugitivo{
+            transform: translate(80%, -50%);
+            z-index: 999;
+        }
+        #imagem{
+            animation: pulse 2s infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+    0% {
+        transform: scale(1); /* Tamanho original */
+    }
+    50% {
+        transform: scale(0.8); /* Aumenta 20% */
+    }
+    100% {
+        transform: scale(1); /* Volta ao tamanho original */
+    }
+}
+
+    </style>
+</head>
+<body>
+    
+    <div id="caixa">
+        <h1>Quer namorar comigo?</h1>
+    <button id="fugitivo">Não</button>
+    <a href="tela.html"><button id="sim">Sim</button></a>
+    <img id="imagem" src="co2.png" alt="">
+</div>
+
+    <script>
+        const button = document.getElementById('fugitivo');
+
+        button.addEventListener('mouseover', () => {
+            const randomX = Math.random() * (window.innerWidth - button.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - button.offsetHeight);
+
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
+        });
+    </script>
+</body>
+</html>
